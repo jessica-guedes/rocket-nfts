@@ -18,19 +18,42 @@
         <img class="logo" src="assets/logo.svg" alt="Logo Rocket NFTs">
 
         
-          <ul>
-            <li><a onclick="closeMenu()" href="#comprar">Comprar NFT</a></li>
-            <li><a onclick="closeMenu()" href="#about">Sobre</a></li>
-            <li><a onclick="closeMenu()" href="#faq">FAQ</a></li>
-          </ul>
-        
-
-          
-            <a class= "button" onclick="closeMenu()" href="">
-              <img src="assets/logo_MetaMask.svg" alt="">
-              Conectar Carteira
-            </a>
+          <div class="menu">
+            <ul>
+              <li><a onclick="closeMenu()" href="#comprar">Comprar NFT</a></li>
+              <li><a onclick="closeMenu()" href="#about">Sobre</a></li>
+              <li><a onclick="closeMenu()" href="#faq">FAQ</a></li>
+            </ul>
+            
+              <a class= "button" onclick="closeMenu()" href="">
+                <img src="assets/logo_MetaMask.svg" alt="">
+                Conectar Carteira
+              </a>
+          </div>
     </div>
+
+    <button 
+      aria-expanded="false"
+      aria-label="Abrir menu"
+      onclick="openMenu()"
+      class="open-menu">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 20H30" stroke="#00856F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 12H30" stroke="#00856F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 28L30 28" stroke="#00856F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <button 
+      aria-expanded="true"
+      aria-label="Fechar menu"
+      onclick="closeMenu()"
+      class="close-menu">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 10L10 30M10 10L30 30" stroke="#FFFAF1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+    </button>
   </nav>
 
   <section id="home">
@@ -223,7 +246,8 @@
         <footer class="footer">
           <div class="top-footer">
             <img class="img-logo" src="assets/logo.svg" alt="Imagem-Logo-Arte">
-            <img class="img-seta" src="assets/arrow-black.svg" alt="arrow-black">
+
+            <a  id="backToTopButton" href="#home"><img class="img-seta" src="assets/arrow-black.svg" alt="arrow-black"></a>
           </div>
 
          
@@ -283,5 +307,7 @@
     </div>
   </div>
 
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="main.js"></script>
 </body>
 </html>
