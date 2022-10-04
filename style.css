@@ -28,7 +28,8 @@ body {
 
 body{
   font-family: 'Montserrat', sans-serif;
-  background: url(assets/background.png) no-repeat top center var(--body-background);
+  background: var(--body-background) url(assets/background.png) no-repeat 100% center
+  ;
   overflow-x: hidden;
 }
 
@@ -337,6 +338,7 @@ section .content p{
 .gallery-container{
   display: flex;
   flex-wrap: wrap;
+  margin-left: 1.5rem;
   justify-content: center;
   gap: 1vw;
   margin: 0 80px;
