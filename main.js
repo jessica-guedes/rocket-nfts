@@ -67,7 +67,7 @@ ScrollReveal({
 }).reveal(`
   #home, 
   #home img, 
-  #home .stats, 
+  #stats, 
   #services,
   #services header,
   #services .card

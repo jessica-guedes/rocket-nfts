@@ -46,6 +46,109 @@ a {
   color: var(--text-color);
 }
 
+nav#nav .wrapper *{
+  margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    transform: initial;
+    color: initial;
+    background-color: initial;
+    font-weight: initial;
+    font-size: initial;
+    filter: initial;
+}
+
+
+nav#nav .close-menu,
+nav#nav .open-menu,
+nav#nav .social-links{
+display: none;
+}
+
+nav#nav .menu{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+}
+
+nav#nav .menu ul:nth-child(1){
+  display: flex;
+  gap: 3.2rem;
+}
+
+nav#nav .menu ul li a {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+nav#nav .menu a.button{
+  display: flex;
+  align-items: center;
+  background: var(--text-color);
+  height: 35px;
+  padding: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  font-size: .7rem;
+}
+
+nav#nav .menu a.button:hover{
+  background-color: var(--color-logo);
+  border: none;
+  color: #ffffff;
+}
+nav .menu a.button img{
+  width: 20px;
+  margin: 5px;
+}
+
+nav#nav.scroll .menu ul li a {
+  color: var(--color-logo);
+  opacity: 0.6;
+}
+
+nav#nav .menu li a {
+  transition: opacity .4s;
+}
+
+nav#nav .menu li a.active,
+nav#nav .menu li a:hover{
+  opacity: 1;
+  font-weight: 700;
+}
+
+nav#nav .menu li a::after{
+  content: '';
+  width: 0%;
+  height: ;
+  background-color: var(--color-logo);
+  position: relative;
+  bottom: -2rem;
+  left: -0.5rem;
+  padding-inline: 0.8rem;
+  display: block;
+
+  transition: width 0.1s;
+}
+
+nav#nav.scroll .menu li a::after{
+  background-color: #ffffff;
+}
+
+nav#nav .menu li a.active::after,
+nav#nav .menu li a:hover::after{
+  padding-inline: 0.8rem;
+  width: 100%;
+  height: 0.8px;
+}
+
 nav{
   display: flex;
   height: var(--nav-height);
@@ -61,6 +164,7 @@ nav .wrapper {
   align-items: center;
   justify-content: space-between;
 }
+
 nav .wrapper .logo{
   width: 15rem;
 }
@@ -73,13 +177,14 @@ nav .menu,
 nav .close-menu{
   position: fixed;
 }
+
 /*================ MENU-EXPANDED ========================*/
 
 body.menu-expanded{
   overflow: hidden;
 }
 
-body.menu-expanded > :not(nav){ /*pegar todos que estão no primeiro nível e sumir menos o nav*/
+body.menu-expanded > :not(nav){ 
   visibility: hidden;
 
 }
@@ -133,7 +238,7 @@ body.menu-expanded .menu{
 .menu .button{
   background-color: var(--text-color);
 
-  border-radius: 2rem;
+  border-radius: .5rem;
   font-weight: 700;
   font-size: 1rem;
   line-height: 2rem;
@@ -146,8 +251,6 @@ body.menu-expanded .menu{
   margin-left: 25%;
   margin-bottom: 10rem;
 
-  
-
 }
 
 .menu .button:hover{
@@ -158,15 +261,31 @@ body.menu-expanded .menu{
 }
 
 
-
-
 body.menu-expanded .logo,
 body.menu-expanded nav button{
   position: relative;
   z-index: 100;
 }
 
-/* conteudo inicial*/
+/* HOME */
+
+#home {
+  padding-block: 0;
+  padding-top: calc(4.1rem + var(--nav-height)) ;
+}
+
+#home::before { /*criou o fundo antes do header*/
+  content: '';
+  width: 100%;
+  height: calc(76% + var(--nav-height));
+  background-color: var(--brand-light);
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
 section {
   padding-block: 10rem;
@@ -179,8 +298,10 @@ section .content p{
 
 #home .wrapper{
   display: grid;
-  grid-template-columns: 18rem 30rem 15rem;
+  grid-template-columns: 15rem 30rem 15rem;
+  gap: 2rem;
   align-items: center;
+  padding-bottom: 10rem;
 }
 
 #home .col-a {
@@ -588,122 +709,42 @@ input:focus{
   width: 20px;
 }
 
+/*BACK TO TOP */
 
-/*     RESPONSIVO          */
-@media (min-width: 1024px){
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+/*     RESPONSIVO    */
+@media (max-width: 1080px){
+/*      GERAL   */
+
   body{
     overflow: auto;
   }
 
 
-  section{
-    padding-block: 16rem;
-  }
+  
 
  /* RESPONSIVO NAV */
 
+ 
  /*reset*/
-  nav#nav .wrapper *{
-    margin: 0;
-      padding: 0;
-      visibility: initial;
-      display: initial;
-      opacity: initial;
-      flex-direction: initial;
-      position: initial;
-      transform: initial;
-      color: initial;
-      background-color: initial;
-      font-weight: initial;
-      font-size: initial;
-      filter: initial;
-  }
-
-  nav#nav .close-menu,
-  nav#nav .open-menu,
-  nav#nav .social-links{
-    display: none;
-  }
   
-  nav#nav .menu{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 60%;
-  }
-
-  nav#nav .menu ul:nth-child(1){
-    display: flex;
-    gap: 3.2rem;
-  }
-
-  nav#nav .menu ul li a {
-    color: var(--text-color);
-    opacity: 0.7;
-  }
-
-  nav#nav .menu a.button{
-    display: flex;
-    align-items: center;
-    background: var(--text-color);
-    height: 35px;
-    padding: 10px;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    color: #000;
-    font-size: .7rem;
-  }
-
-  nav#nav .menu a.button:hover{
-    background-color: var(--color-logo);
-    border: none;
-    color: #ffffff;
-  }
-  nav .menu a.button img{
-    width: 20px;
-    margin: 5px;
-  }
-
-  nav#nav.scroll .menu ul li a {
-    color: var(--color-logo);
-    opacity: 0.6;
-  }
-
-  nav#nav .menu li a {
-    transition: opacity .4s;
-  }
-
-  nav#nav .menu li a.active,
-  nav#nav .menu li a:hover{
-    opacity: 1;
-    font-weight: 700;
-  }
-
-  nav#nav .menu li a::after{
-    content: '';
-    width: 0%;
-    height: ;
-    background-color: var(--primary-color);
-    position: relative;
-    bottom: -2rem;
-    left: -0.5rem;
-    padding-inline: 0.8rem;
-    display: block;
-
-    transition: width 0.2s;
-  }
-
-  nav#nav.scroll .menu li a::after{
-    background-color: #ffffff;
-  }
-
-  nav#nav .menu li a.active::after,
-  nav#nav .menu li a:hover::after{
-    padding-inline: 0.8rem;
-    width: 100%;
-    height: 2px;
-  }
 
   /* HOME    */
   #home::before{
@@ -714,8 +755,32 @@ input:focus{
     padding-top: var(--nav-height);
   }
 
+  #home .wrapper{
+    grid-template-columns: 40rem 30rem ;
+    grid-template-areas: 
+    'B C'
+     ;
+    align-items: center;
+  }
+    #home .col-a{
+      display: none;
+    }
+
+    #home .col-b{
+      grid-area: B;
+    }
+
+    #home .col-c{
+      grid-area: C;
+      flex-direction: row;
+      padding: 6rem;
+    }
   
   }
+
+  
+
+  
 
 
 
